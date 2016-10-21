@@ -2,6 +2,9 @@ FROM ubuntu:14.04
 
 # Container env var, no tty
 ENV DEBIAN_FRONTEND=noninteractive
+# Set locale 
+#ENV LC_ALL en_US.UTF-8
+RUN locale-gen "en_US.UTF-8"
 
 # Install wget
 RUN \
@@ -31,7 +34,11 @@ ENV PGDATA /var/lib/postgresql/data
 # TODO : Setup some volume thing
 VOLUME /var/lib/postgresql/data
 
+# Expose port
 EXPOSE 5432
+
+# Add postgres server config
+ADD postgresql.conf /var/lib/postgresql/data/
 
 # Create user to run 
 #RUN useradd -ms /bin/bash postgres
