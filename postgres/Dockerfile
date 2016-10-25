@@ -39,6 +39,7 @@ EXPOSE 5432
 
 # Add postgres server config
 ADD postgresql.conf /var/lib/postgresql/data/
+ADD pg_hba.conf /etc/postgresql/9.6/main/
 ADD setup.sql /
 ADD setup.sh /
 
