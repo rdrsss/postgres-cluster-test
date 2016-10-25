@@ -40,6 +40,7 @@ EXPOSE 5432
 # Add postgres server config
 ADD postgresql.conf /var/lib/postgresql/data/
 ADD setup.sql /
+ADD setup.sh /
 
 # Create user to run 
 #RUN useradd -ms /bin/bash postgres
