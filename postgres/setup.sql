@@ -6,7 +6,7 @@ DO
 $body$
 BEGIN
 	IF NOT EXISTS ( SELECT * FROM pg_catalog.pg_user WHERE usename = 'test_user' ) THEN
-		CREATE ROLE test_user LOGIN PASSWORD 'password';
+		CREATE ROLE test_user LOGIN CREATEDB PASSWORD 'password';
 	END IF;
 END
 $body$;
