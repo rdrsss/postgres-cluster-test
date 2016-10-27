@@ -1,5 +1,5 @@
 /* Create a test databse */
--- CREATE DATABASE test_db;
+-- CREATE DATABASE test_database;
 
 /* Create a test user */
 DO
