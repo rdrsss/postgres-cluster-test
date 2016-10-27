@@ -1,5 +1,5 @@
 /* Create a test databse */
-#CREATE DATABASE test_db;
+-- CREATE DATABASE test_db;
 
 /* Create a test user */
 DO
@@ -12,5 +12,5 @@ END
 $body$;
 
 /* Grant all priveleges to test_user */
-#GRANT ALL ON DATABASE test_db TO test_user;
+-- GRANT ALL ON DATABASE test_db TO test_user;
 
