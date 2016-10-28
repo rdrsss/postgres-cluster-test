@@ -1,6 +1,3 @@
-/* Create a test databse */
--- CREATE DATABASE test_database;
-
 /* Create a test user */
 DO
 $body$
@@ -11,6 +8,25 @@ BEGIN
 END
 $body$;
 
-/* Grant all priveleges to test_user */
--- GRANT ALL ON DATABASE test_db TO test_user;
+/*Create databases, and add extensions */
+-- test db
+-- create
+CREATE DATABASE test_db WITH OWNER test_user;
+-- connect to db
+\c test_db
+-- create schema
+CREATE SCHEMA extensions AUTHORIZATION test_user;
+GRANT ALL ON SCHEMA extensions TO postgres;
+GRANT ALL ON SCHEMA extensions TO public;
+CREATE EXTENSION "uuid-ossp" SCHEMA extensions;
+-- dev db
+-- create
+CREATE DATABASE dev_db WITH OWNER test_user;
+-- connect to db
+\c dev_db
+-- create schema
+CREATE SCHEMA extensions AUTHORIZATION test_user;
+GRANT ALL ON SCHEMA extensions TO postgres;
+GRANT ALL ON SCHEMA extensions TO public;
+CREATE EXTENSION "uuid-ossp" SCHEMA extensions;
 
