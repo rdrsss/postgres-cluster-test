@@ -19,6 +19,8 @@ CREATE SCHEMA extensions AUTHORIZATION test_user;
 GRANT ALL ON SCHEMA extensions TO postgres;
 GRANT ALL ON SCHEMA extensions TO public;
 CREATE EXTENSION "uuid-ossp" SCHEMA extensions;
+-- take ownership of public schema
+ALTER SCHEMA public OWNER TO test_user;
 -- dev db
 -- create
 CREATE DATABASE dev_db WITH OWNER test_user;
@@ -29,4 +31,5 @@ CREATE SCHEMA extensions AUTHORIZATION test_user;
 GRANT ALL ON SCHEMA extensions TO postgres;
 GRANT ALL ON SCHEMA extensions TO public;
 CREATE EXTENSION "uuid-ossp" SCHEMA extensions;
-
+-- take ownership of public schema
+ALTER SCHEMA public OWNER TO test_user;
